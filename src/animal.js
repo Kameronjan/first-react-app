@@ -12,3 +12,5 @@ export const animals = {
     facts: ['Starfish can have up to 40 arms!', 'Starfish have no brain and no blood!', 'Starfish can regenerate their own arms!']
   }
 };
+
+const myElement = document.getElementById('app');
