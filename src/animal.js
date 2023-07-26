@@ -12,8 +12,3 @@ export const animals = {
     facts: ['Starfish can have up to 40 arms!', 'Starfish have no brain and no blood!', 'Starfish can regenerate their own arms!']
   }
 };
-
-const root = createRoot(container);
-const myElement = document.getElementById('app');
-const title = "";
-const animalFacts = <h1>{title === '' ? 'Click an animal for a fun fact' : title}</h1>;
