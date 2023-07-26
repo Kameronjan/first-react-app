@@ -13,4 +13,7 @@ export const animals = {
   }
 };
 
+const root = createRoot(container);
 const myElement = document.getElementById('app');
+const title = "";
+const animalFacts = <h1>{title === '' ? 'Click an animal for a fun fact' : title}</h1>;
