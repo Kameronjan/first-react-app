@@ -1,18 +1,19 @@
+// first step is to import everything
 import React from "react";
 import { createRoot } from "react-dom";
-
 import { animals } from "./animal";
 
+// Next we need to initialize our constants
 const container = document.getElementById("app");
 const root = createRoot(container);
 const title = "";
+
 const background = (
   <img className="background" alt="ocean" src="/images/ocean.jpg" />
 );
 
 const showBackground = true;
-
-const animalNames = Object.keys(animals); // Get the animal names from the animals object
+const animalNames = Object.keys(animals);
 
 const images = [];
 for (const animal of animalNames) {
@@ -31,6 +32,7 @@ for (const animal of animalNames) {
   images.push(imgElement);
 }
 
+// Setting up our display fact function
 function displayFact(e) {
   const animalName = e.target.alt;
   const animalFacts = animals[animalName].facts;
@@ -40,6 +42,7 @@ function displayFact(e) {
   factElement.innerHTML = funFact;
 }
 
+// This code sets us up to display everything
 const animalFacts = (
   <div>
     <div>
@@ -51,4 +54,5 @@ const animalFacts = (
   </div>
 );
 
+// Finally, our code is called with this line
 root.render(animalFacts);
