@@ -3,7 +3,14 @@ import { createRoot } from 'react-dom/client';
 
 const container = document.getElementById('app');
 const root = createRoot(container);
-const title = "";
+const title = '';
+const background = (
+  <img
+    className = 'background'
+    alt = 'ocean'
+    src = '/images/ocean.jpg'
+  />
+);
 const animalFacts = <h1>{title === '' ? 'Click an animal for a fun fact' : title}</h1>;
 
 root.render(animalFacts);
