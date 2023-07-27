@@ -1,55 +1,54 @@
-import { React } from 'react';
-import { createRoot } from 'react-dom';
+import React from "react";
+import { createRoot } from "react-dom";
 
-const container = document.getElementById('app');
+import { animals } from "./animal";
+
+const container = document.getElementById("app");
 const root = createRoot(container);
-const title = '';
+const title = "";
 const background = (
-  <img
-    className = 'background'
-    alt = 'ocean'
-    src = '/images/ocean.jpg'
-  />
+  <img className="background" alt="ocean" src="/images/ocean.jpg" />
 );
 
-const animals = ['dolphin', 'lobster', 'starfish'];
+const showBackground = true;
+
+const animalNames = Object.keys(animals); // Get the animal names from the animals object
 
 const images = [];
-for (const animal in animals) {
+for (const animal of animalNames) {
+  // Use for...of loop to iterate over the animal names
   const imgElement = (
     <img
       key={animal}
-      className='animal'
-      alt={animals[animal]}
-      src={`/images/${animals[animal]}.jpg`}
-      aria-label={animals[animal]}
-      role='button'
+      className="animal"
+      alt={animal}
+      src={`/images/${animal}.jpg`}
+      aria-label={animal}
+      role="button"
+      onClick={displayFact}
     />
   );
   images.push(imgElement);
 }
 
-const animalFacts = (
-  <div>
-    <div>
-      {background}
-      <h1>{title === '' ? 'Click an animal for a fun fact' : title}</h1>
-    </div>
-    <div className = 'animals'>
-      {images}
-    </div>
-    <p id='fact'></p>
-  </div>
-);
-
 function displayFact(e) {
   const animalName = e.target.alt;
   const animalFacts = animals[animalName].facts;
   const randomIndex = Math.floor(Math.random() * animalFacts.length);
-
   const funFact = animalFacts[randomIndex];
-
-  console.log(funFact);
+  const factElement = document.getElementById("fact");
+  factElement.innerHTML = funFact;
 }
+
+const animalFacts = (
+  <div>
+    <div>
+      {showBackground && background}
+      <h1>{title || "Click an animal for a fun fact"}</h1>
+    </div>
+    <div className="animals">{images}</div>
+    <p id="fact"></p>
+  </div>
+);
 
 root.render(animalFacts);
