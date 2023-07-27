@@ -14,22 +14,31 @@ const background = (
 
 const animals = ['dolphin', 'lobster', 'starfish'];
 
-const images[];
+const images = [];
 for (const animal in animals) {
-  const imgElement = document.createElement('img');
-  imgElement.key = animal;
-  imgElement.className = 'animal';
-  imgElement.alt = animal;
-  imgElement.src = animals[animal].image;
-  imgElement['aria-label'] = animal;
-  imgElement.role = 'button';
+  const imgElement = (
+    <img
+      key={animal}
+      className='animal'
+      alt={animals[animal]}
+      src={`/images/${animals[animal]}.jpg`}
+      aria-label={animals[animal]}
+      role='button'
+    />
+  );
   images.push(imgElement);
 }
 
 const animalFacts = (
   <div>
-    {background}
-    <h1>{title === '' ? 'Click an animal for a fun fact' : title}</h1>
+    <div>
+      {background}
+      <h1>{title === '' ? 'Click an animal for a fun fact' : title}</h1>
+    </div>
+
+    <div className = 'animals'>
+      {images}
+    </div>
   </div>
 );
 
