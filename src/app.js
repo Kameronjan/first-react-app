@@ -42,4 +42,14 @@ const animalFacts = (
   </div>
 );
 
+function displayFact(e) {
+  const animalName = e.target.alt;
+  const animalFacts = animals[animalName].facts;
+  const randomIndex = Math.floor(Math.random() * animalFacts.length);
+
+  const funFact = animalFacts[randomIndex];
+
+  console.log(funFact);
+}
+
 root.render(animalFacts);
