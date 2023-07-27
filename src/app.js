@@ -11,6 +11,7 @@ const background = (
     src = '/images/ocean.jpg'
   />
 );
+
 const animalFacts = (
   <div>
     {background}
